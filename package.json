@@ -1,0 +1,14 @@
+{
+  "name": "load-cedaro-grunt-config",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Brady Vercher",
+  "license": "MIT",
+  "dependencies": {
+    "jit-grunt": "~0.9",
+    "load-grunt-config": "~0.16",
+    "lodash": "^3.3.0",
+    "time-grunt": "~1.0"
+  }
+}
