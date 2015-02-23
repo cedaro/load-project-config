@@ -6,9 +6,8 @@
   "author": "Brady Vercher",
   "license": "MIT",
   "dependencies": {
-    "jit-grunt": "~0.9",
-    "load-grunt-config": "~0.16",
+    "load-grunt-config": "^0.16.0",
     "lodash": "^3.3.0",
-    "time-grunt": "~1.0"
+    "time-grunt": "^1.0.0"
   }
 }
