@@ -32,12 +32,12 @@ Project.prototype.getConfigPaths = function() {
 
 	// Global config path.
 	if ( settings.paths.global.config ) {
-		paths.push( settings.paths.global.config );
+		paths.push( settings.paths.global.grunt );
 	}
 
 	// Local config path.
 	if ( settings.paths.config ) {
-		paths.push( path.join( process.cwd(), settings.paths.config ) );
+		paths.push( path.join( process.cwd(), settings.paths.grunt ) );
 	}
 
 	return paths;
@@ -52,7 +52,7 @@ Project.prototype.init = function( options ) {
 		configPath: this.getConfigPaths(),
 		data: settings,
 		jitGrunt: {
-			customTasksDir: settings.paths.tasks || null,
+			customTasksDir: settings.paths.grunt + '/tasks',
 			staticMappings: this.taskMap()
 		}
 	});
