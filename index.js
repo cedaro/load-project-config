@@ -3,7 +3,7 @@ var _ = require( 'lodash' ),
 
 function Project( grunt, config ) {
 	if ( ! ( this instanceof Project ) ) {
-        return new Project( grunt, config );
+		return new Project( grunt, config );
 	}
 
 	var settings = {},
@@ -12,12 +12,12 @@ function Project( grunt, config ) {
 	this.settings = function( options ) {
 		options && _.merge( settings, options );
 		return settings || {};
-	}
+	};
 
 	this.taskMap = function( map ) {
 		map && _.merge( taskMap, map );
 		return taskMap || {};
-	}
+	};
 
 	this.grunt = grunt;
 	config = _.isFunction( config ) ? config() : config;
@@ -41,7 +41,7 @@ Project.prototype.getConfigPaths = function() {
 	}
 
 	return paths;
-}
+};
 
 Project.prototype.init = function( options ) {
 	var settings = this.settings( options );
@@ -58,6 +58,6 @@ Project.prototype.init = function( options ) {
 	});
 
 	return this;
-}
+};
 
 module.exports = Project;
