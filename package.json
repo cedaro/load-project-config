@@ -9,9 +9,15 @@
     "url": "http://www.cedaro.com/"
   },
   "main": "index.js",
+  "scripts": {
+    "lint": "jshint index.js"
+  },
   "dependencies": {
     "load-grunt-config": "^0.17.2",
     "lodash": "^3.10.1",
     "time-grunt": "^1.2.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0"
   }
 }
