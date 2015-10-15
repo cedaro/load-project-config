@@ -1,3 +1,5 @@
+'use strict';
+
 var _ = require( 'lodash' ),
 	path = require( 'path' );
 
@@ -44,7 +46,14 @@ Project.prototype.getConfigPaths = function() {
 };
 
 Project.prototype.init = function( options ) {
-	var settings = this.settings( options );
+	var settings;
+
+	if ( options && options.taskMap ) {
+		this.taskMap( options.taskMap );
+		delete options.taskMap;
+	}
+
+	this.settings( options );
 
 	require( 'time-grunt' )( this.grunt );
 
