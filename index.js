@@ -53,7 +53,7 @@ Project.prototype.init = function( options ) {
 		delete options.taskMap;
 	}
 
-	this.settings( options );
+	settings = this.settings( options );
 
 	require( 'time-grunt' )( this.grunt );
 
