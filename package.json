@@ -1,9 +1,9 @@
 {
-  "name": "load-cedaro-grunt-config",
+  "name": "load-project-config",
   "version": "0.1.0",
-  "description": "A loader for shared Grunt config modules.",
+  "description": "A loader for shared configuration modules.",
   "license": "MIT",
-  "repository": "cedaro/load-cedaro-grunt-config",
+  "repository": "cedaro/load-project-config",
   "author": {
     "name": "Brady Vercher",
     "url": "http://www.cedaro.com/"
