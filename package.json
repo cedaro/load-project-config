@@ -1,6 +1,6 @@
 {
   "name": "load-project-config",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A loader for shared configuration modules.",
   "license": "MIT",
   "repository": "cedaro/load-project-config",
