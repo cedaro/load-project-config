@@ -16,8 +16,14 @@ function Project(grunt, config) {
     return new Project(grunt, config);
   }
 
+  var loader = {};
   var settings = {};
   var taskMap = {};
+
+  this.loader = function(options) {
+    options && _.merge(loader, options);
+    return loader || {};
+  };
 
   this.settings = function(options) {
     options && _.merge(settings, options);
@@ -31,6 +37,8 @@ function Project(grunt, config) {
 
   this.grunt = grunt;
   config = _.isFunction(config) ? config() : config;
+  config.loader && this.loader(config.loader);
+  delete config.loader;
   config.taskMap && this.taskMap(config.taskMap);
   delete config.taskMap;
   this.settings(config);
@@ -56,6 +64,11 @@ Project.prototype.getConfigPaths = function() {
 Project.prototype.init = function(options) {
   var settings;
 
+  if (options && options.loader) {
+    this.loader(options.loader);
+    delete options.loader;
+  }
+
   if (options && options.taskMap) {
     this.taskMap(options.taskMap);
     delete options.taskMap;
@@ -65,14 +78,16 @@ Project.prototype.init = function(options) {
 
   require('time-grunt')(this.grunt);
 
-  require('load-grunt-config')(this.grunt, {
+  var loader = _.merge({
     configPath: this.getConfigPaths(),
     data: settings,
     jitGrunt: {
       customTasksDir: settings.paths.grunt + '/tasks',
       staticMappings: this.taskMap()
     }
-  });
+  }, this.loader());
+
+  require('load-grunt-config')(this.grunt, loader);
 
   return this;
 };
